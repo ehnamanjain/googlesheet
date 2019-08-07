@@ -139,7 +139,7 @@ const info = rows.forEach((index,item) => {
     console.log(`Candidate name is ${index.name}, and belongs to ${index.country}`)
 
   
-ggf = ggf + `<h1>Candidate name is ${index.name}, and belongs to ${index.country}</h1>`
+ggf = ggf + `<h2>Candidate name is ${index.name}, and belongs to ${index.country}</h2>`
 
    
 
