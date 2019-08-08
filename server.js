@@ -1,6 +1,6 @@
 var GoogleSpreadsheet = require('google-spreadsheet');
 
-var creds = require('./client-secret.json');
+var creds = require('./client_secret.json');
 
  
 
@@ -27,7 +27,7 @@ app.use(express.static(__dirname + '/public'))
 app.get('/send', function(req, res) {
 
      var oname = req.query.name
-     var oountry = req.query.country
+     var ocity = req.query.city
 
 
 
@@ -35,7 +35,7 @@ app.get('/send', function(req, res) {
 
  
 
-      doc.addRow(1, { name: oname, country: oountry }, function(err) {
+      doc.addRow(1, { name: oname, city: ocity }, function(err) {
   
           if(err) {
         
@@ -85,10 +85,10 @@ ggf = ''
     doc.getRows(1, function (err, rows) {
   
   const info = rows.forEach((index,item) => {
-      console.log(`Candidate name is ${index.name}, and belongs to ${index.country}`)
+      console.log(`Candidate name is ${index.name}, and belongs to ${index.city}`)
 
     
- ggf = ggf + `<h1>Candidate name is ${index.name}, and belongs to ${index.country}</h1>`
+ ggf = ggf + `<h1>Candidate name is ${index.name}, and belongs to ${index.city}</h1>`
 
      
 
@@ -106,6 +106,17 @@ ggf = ''
 
 
   });
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -136,10 +147,10 @@ doc.useServiceAccountAuth(creds, function (err) {
   doc.getRows(1, function (err, rows) {
 
 const info = rows.forEach((index,item) => {
-    console.log(`Candidate name is ${index.name}, and belongs to ${index.country}`)
+    console.log(`Candidate name is ${index.name}, and belongs to ${index.city}`)
 
   
-ggf = ggf + `<h1>Candidate name is ${index.name}, and belongs to ${index.country}</h1>`
+ggf = ggf + `<h1>Candidate name is ${index.name}, and belongs to ${index.city}</h1>`
 
    
 
@@ -165,5 +176,5 @@ res.render('home.hbs', {
 
 
 app.listen(port, () => {
-  console.log(`Server is running on port ${port}`)
+  console.log(`server is running on port ${port}`)
 })
